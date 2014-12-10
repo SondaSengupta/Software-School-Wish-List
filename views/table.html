@@ -9,7 +9,7 @@
   <tr ng-repeat="(wishId, list) in aC.Wishes">
     <td>{{list.item}}</td>
     <td>{{list.price}}</td>
-    <td>{{list.link}}</td>
+    <td><a ng-href="{{list.link}}">Link Here</a></td>
     <td>{{list.category}}</td>
     <td>
       <a class="btn btn-primary" href="/#/{{wishId}}">Show</a>
