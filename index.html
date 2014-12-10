@@ -10,40 +10,10 @@
   <h1>Amazon Wish List</h1>
 
   <div ng-controller="AmazonController as aC">
-    <form name="newWishForm" ng-submit="newWishForm.$valid && aC.addNewWish()" novalidate>
-      <div>
-        <label for="price">Price</label>
-        <input class="price" id="price" type="currency" ng-model="aC.newWish.price">
-      </div>
-      <div>
-        <label for="item">Item</label>
-        <input class="item" id="item" type="text" ng-model="aC.newWish.item">
-      </div>
-      <div>
-        <label for="link">Link</label>
-        <input class="link" id="link" type="text" ng-model="aC.newWish.link">
-      </div>
-      <div>
-        <label for="category">Category</label>
-        <input class="category" id="category" type="text" ng-model="aC.newWish.category">
-      </div>
-      <input type="submit" class="btn btn-success" value="Add-Wish" ng-show="newWishForm.$valid"/>
-    </form>
-    <table>
-      <tr>
-        <th>Item</th>
-        <th>Price</th>
-        <th>Link</th>
-        <th>Category</th>
-      </tr>
-      <tr ng-repeat="(wishId, list) in aC.Wishes">
-        <td>{{list.price}}</td>
-        <td>{{list.item}}</td>
-        <td>{{list.link}}</td>
-        <td>{{list.category}}</td>
-        <td><button class="btn btn-danger" ng-click="aC.deleteWish(wishId)">Delete</button></td>
-      </tr>
-    </table>
+    <a class="btn btn-primary" href="/#/">Wishes</a>
+    <a class="btn btn-primary" href="/#/new">New Wish</a>
+
+    <div ng-view></div>
   </div>
 
   <script src="bower_components/jquery/dist/jquery.min.js"></script>

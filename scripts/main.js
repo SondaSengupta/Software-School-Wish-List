@@ -1,6 +1,19 @@
 (function() {
   "use strict";
   angular.module("myApp", ['ngRoute', 'mgcrea.ngStrap'])
+  .config(function($routeProvider){
+    $routeProvider
+    .when('/', {
+      templateUrl: "views/table.html",
+      controller: "AmazonController",
+      controllerAs: "aC"
+    })
+    .when('/new', {
+      templateUrl: "views/form.html",
+      controller: "AmazonController",
+      controllerAs: "aC"
+    })
+  })
   .controller("AmazonController", function($http){
     var vm = this;
     $http.get("https://nsswishlist.firebaseio.com/Wishes.json")
