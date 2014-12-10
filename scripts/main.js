@@ -64,7 +64,7 @@
       var url = "https://nsswishlist.firebaseio.com/Wishes/" + wishId + ".json";
       $http.delete(url)
       .success(function(data){
-        cb();
+        cb()
       })
       .error(function(err){
         console.log(err);
@@ -94,16 +94,16 @@
   .controller("AmazonController", function($http, WishFactory){
     var vm = this;
     WishFactory.getAllWishes(function(data){
-      vm.wishes = data;
+      vm.Wishes = data;
     })
     vm.addNewWish = function(){
       WishFactory.addNewWish(vm.newWish, function(data){
-        vm.wishes[data.name] = vm.newWish;
+        vm.Wishes[data.name] = vm.newWish;
       });
     };
     vm.removeWish = function(wishId){
-      WishFactory.deleteWish(wishId, function(){
-        delete vm.wishes[wishid];
+      WishFactory.removeWish(wishId, function(){
+        delete vm.Wishes[wishId];
       })
     };
     // $http.get("https://nsswishlist.firebaseio.com/Wishes.json")
