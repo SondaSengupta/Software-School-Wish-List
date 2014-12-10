@@ -1,0 +1,16 @@
+{
+  "Wishes": {
+    "pickle": {
+      "price": "price",
+      "item": "item",
+      "link": "link",
+      "category": "category"
+    },
+    "cucumber": {
+      "price": "1.00",
+      "item": "item",
+      "link": "link",
+      "category": "category"
+    }
+  }
+}

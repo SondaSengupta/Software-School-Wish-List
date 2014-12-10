@@ -1,11 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="myApp" >
 <head>
   <meta charset="UTF-8">
   <title>Amazon Wish List</title>
 </head>
 <body>
-<h1>Amazon Wish List</h1>
+  <h1>Amazon Wish List</h1>
+
+  <div ng-controller="AmazonController as aC">
+    <table>
+      <tr>
+        <th>Item</th>
+        <th>Price</th>
+        <th>Link</th>
+        <th>Category</th>
+      </tr>
+      <tr ng-repeat="(wishId, list) in aC.Wishes">
+        <td>{{list.price}}</td>
+        <td>{{list.item}}</td>
+        <td>{{list.link}}</td>
+        <td>{{list.category}}</td>
+      </tr>
+    </table>
+  </div>
 
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
