@@ -3,15 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <title>Amazon Wish List</title>
+  <link href='http://fonts.googleapis.com/css?family=Nothing+You+Could+Do' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="stylesheets/neat.scss">
+  <link rel="stylesheet" href="stylesheets/neat.css">
 </head>
 <body>
   <h1>Amazon Wish List</h1>
 
   <div ng-controller="AmazonController as aC">
-    <a class="btn btn-primary" href="/#/">Wishes</a>
-    <a class="btn btn-primary" href="/#/new">New Wish</a>
+    <a id="allWish" class="btn btn-primary" href="/#/">Wishes</a>
+    <a id="newWish" class="btn btn-primary" href="/#/new">New Wish</a>
 
     <div ng-view></div>
   </div>
