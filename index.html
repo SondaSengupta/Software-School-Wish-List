@@ -10,22 +10,22 @@
   <h1>Amazon Wish List</h1>
 
   <div ng-controller="AmazonController as aC">
-    <form name="newWishForm" ng-submit="newWishForm.$valid" novalidate>
+    <form name="newWishForm" ng-submit="newWishForm.$valid && aC.addNewWish()" novalidate>
       <div>
         <label for="price">Price</label>
-        <input class="price" id="price" type="currency">
+        <input class="price" id="price" type="currency" ng-model="aC.newWish.price">
       </div>
       <div>
         <label for="item">Item</label>
-        <input class="item" id="item" type="text">
+        <input class="item" id="item" type="text" ng-model="aC.newWish.item">
       </div>
       <div>
         <label for="link">Link</label>
-        <input class="link" id="link" type="text">
+        <input class="link" id="link" type="text" ng-model="aC.newWish.link">
       </div>
       <div>
         <label for="category">Category</label>
-        <input class="category" id="category" type="text">
+        <input class="category" id="category" type="text" ng-model="aC.newWish.category">
       </div>
       <input type="submit" class="btn btn-success" value="Add-Wish" ng-show="newWishForm.$valid"/>
     </form>
@@ -41,6 +41,7 @@
         <td>{{list.item}}</td>
         <td>{{list.link}}</td>
         <td>{{list.category}}</td>
+        <td><button class="btn btn-danger" ng-click="aC.deleteWish(wishId)">Delete</button></td>
       </tr>
     </table>
   </div>
