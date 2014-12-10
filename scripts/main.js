@@ -18,12 +18,17 @@
       controller: "ShowController",
       controllerAs: "show"
     })
+    .when('/:id/edit', {
+      templateUrl: "views/form.html",
+      controller: "EditWishController",
+      controllerAs: "aC"
+    })
     .otherwise({redirectTo: '/'});
   })
   .factory("WishFactory", function($http, $location){
 
     function getWish(id, cb){
-      var url = "https://nsswishlist.firebaseio.com/Wishes/"+id+".json"
+      var url = "https://nsswishlist.firebaseio.com/Wishes/" + id + ".json"
       $http.get(url)
       .success(function(data){
         cb(data);
@@ -33,7 +38,7 @@
       });
     }
     function editWish(id, wish){
-      var url = "https://nsswishlist.firebaseio.com/Wishes/" + wishId + ".json"
+      var url = "https://nsswishlist.firebaseio.com/Wishes/" + id + ".json"
       $http.put(url, wish)
       .success(function(data){
         $location.path('/');
@@ -79,7 +84,14 @@
 
     }
   })
-  .controller("EditWish", function($routeParams, WishFactory){
+  .controller("ShowController", function($routeParams, WishFactory){
+    var vm = this;
+    var id = $routeParams.id;
+    WishFactory.getWish(id, function(data){
+      vm.wish = data;
+    });
+  })
+  .controller("EditWishController", function($routeParams, WishFactory){
     var vm = this;
     var id = $routeParams.id;
 

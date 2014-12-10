@@ -6,11 +6,12 @@
     <th>Category</th>
   </tr>
   <tr ng-repeat="(wishId, list) in aC.Wishes">
-    <td>{{list.price}}</td>
     <td>{{list.item}}</td>
+    <td>{{list.price}}</td>
     <td>{{list.link}}</td>
     <td>{{list.category}}</td>
     <td><a class="btn btn-primary" href="/#/{{wishId}}">Show</a></td>
+    <td><a class="btn btn-primary" href="/#/{{wishId}}/edit">Edit</a></td>
     <td><button class="btn btn-danger" ng-click="aC.removeWish(wishId)">Delete</button></td>
   </tr>
 </table>
