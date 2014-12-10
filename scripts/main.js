@@ -13,6 +13,12 @@
       controller: "AmazonController",
       controllerAs: "aC"
     })
+    .when('/:id', {
+      templateUrl: "views/show.html",
+      controller: "ShowController",
+      controllerAs: "show"
+    })
+    .otherwise({redirectTo: '/'});
   })
   .controller("AmazonController", function($http){
     var vm = this;
