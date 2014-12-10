@@ -3,11 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <title>Amazon Wish List</title>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="stylesheets/neat.scss">
 </head>
 <body>
   <h1>Amazon Wish List</h1>
 
   <div ng-controller="AmazonController as aC">
+    <form name="newWishForm" ng-submit="newWishForm.$valid" novalidate>
+      <div>
+        <label for="price">Price</label>
+        <input class="price" id="price" type="currency">
+      </div>
+      <div>
+        <label for="item">Item</label>
+        <input class="item" id="item" type="text">
+      </div>
+      <div>
+        <label for="link">Link</label>
+        <input class="link" id="link" type="text">
+      </div>
+      <div>
+        <label for="category">Category</label>
+        <input class="category" id="category" type="text">
+      </div>
+      <input type="submit" class="btn btn-success" value="Add-Wish" ng-show="newWishForm.$valid"/>
+    </form>
     <table>
       <tr>
         <th>Item</th>
