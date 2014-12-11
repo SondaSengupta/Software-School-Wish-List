@@ -9,6 +9,11 @@ h1 {
   margin-left: 34%;
   margin-bottom: 10px; }
 
+.add-img {
+  height: 100px;
+  width: 100px;
+  border-radius: 10%; }
+
 #newWish {
   float: right;
   margin-right: 34%;

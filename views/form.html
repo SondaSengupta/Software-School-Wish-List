@@ -1,11 +1,15 @@
 <form name="newWishForm" ng-submit="newWishForm.$valid && aC.addNewWish()" novalidate>
   <div>
+    <label for="item">Image URL</label>
+    <input class="item" id="image" type="url" ng-model="aC.newWish.image">
+  </div>
+  <div>
     <label for="item">Item</label>
-    <input class="item" id="item" type="currency" ng-model="aC.newWish.item">
+    <input class="item" id="item" type="text" ng-model="aC.newWish.item" required>
   </div>
   <div>
     <label for="price">Price</label>
-    <input class="price" id="price" type="text" ng-model="aC.newWish.price" required>
+    <input class="price" id="price" type="currency" ng-model="aC.newWish.price">
   </div>
   <div>
     <label for="link">Link</label>

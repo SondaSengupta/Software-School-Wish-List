@@ -1,5 +1,6 @@
 <table class="table table-striped">
   <tr>
+    <th>Image Preview</th>
     <th>Item</th>
     <th>Price</th>
     <th>Link</th>
@@ -7,6 +8,7 @@
     <th>Show / Edit / Delete</th>
   </tr>
   <tr ng-repeat="(wishId, list) in aC.Wishes">
+    <td><img class="add-img" ng-src="{{list.image}}"></td>
     <td>{{list.item}}</td>
     <td>{{list.price}}</td>
     <td><a ng-href="{{list.link}}">Link to Shop</a></td>
