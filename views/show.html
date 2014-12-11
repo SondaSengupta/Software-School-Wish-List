@@ -1,1 +1,8 @@
+<img id="show-pic" ng-src="{{show.wish.image}}"></img>
 <h1>{{show.wish.item}}</h1>
+<ul class="list-group">
+  <li class="list-group-item"><span class="glyphicon glyphicon-stats">  {{show.wish.price}} <span></li>
+  <li class="list-group-item"><span class="glyphicon glyphicon-shopping-cart"><a ng-href="{{show.wish.link}}"> Shop!</a> </span></li>
+  <li class="list-group-item"><span class="glyphicon glyphicon-phone"> {{show.wish.category}} </span></li>
+  <li class="list-group-item"><span class="glyphicon glyphicon-pencil"> {{show.wish.note}} </span></li>
+</ul>

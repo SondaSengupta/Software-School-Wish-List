@@ -19,4 +19,11 @@ h1 {
   margin-right: 34%;
   margin-bottom: 10px; }
 
+#show-pic {
+  display: block;
+  height: 20%;
+  width: 20%;
+  border-radius: 10%;
+  margin: 0px auto; }
+
 /*# sourceMappingURL=neat.css.map */
