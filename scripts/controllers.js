@@ -8,6 +8,12 @@
     WishFactory.getWish(id, function(data) {
       vm.wish = data;
     });
+
+    vm.removeWish = function(id) {
+      WishFactory.removeWish(id, function() {
+        delete vm.Wishes[id];
+      })
+    };
   })
   .controller("EditWishController", function($routeParams, WishFactory) {
     var vm = this,
