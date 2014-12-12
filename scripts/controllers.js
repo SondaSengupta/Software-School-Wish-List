@@ -3,7 +3,7 @@
   angular.module("myApp")
   .controller("LoginController", function($scope, $location) {
     var vm = this;
-        ref = new Firebase("https://sondansswishlist.firebaseio.com/")
+    var ref = new Firebase("https://sondansswishlist.firebaseio.com/")
 
     vm.login = function() {
       ref.authWithPassword({
@@ -34,7 +34,28 @@
       });
     }
 
+    vm.forgotPassword = function() {
+      ref.resetPassword({
+          email:vm.email
+        }, function(error) {
+        if (error === null) {
+          alert("Password reset successful. Please check email for temporary password");
+        } else {
+          console.log("Error sending password reset email. Try again.", error);
+        }
+      });
+    };
+
   })
+
+  .controller("LogoutController", function($scope, $location) {
+      var ref = new Firebase("https://sondansswishlist.firebaseio.com/");
+
+      ref.unauth(function() {
+        $location.path("/");
+        $scope.$apply();
+      });
+    })
 
   .controller("ShowController", function($routeParams, WishFactory) {
     var vm = this,

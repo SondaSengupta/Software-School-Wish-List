@@ -6,6 +6,10 @@
     .when("/", {
       templateUrl: "views/landing.html"
     })
+    .when("/logout", {
+      templateUrl: "views/landing.html",
+      controller: "LogoutController"
+    })
      .when("/login", {
         templateUrl: "views/login.html",
         controller: "LoginController",
