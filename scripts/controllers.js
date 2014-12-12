@@ -1,22 +1,38 @@
 (function() {
   "use strict";
   angular.module("myApp")
-  .controller("LoginController", function() {
+  .controller("LoginController", function($scope, $location) {
     var vm = this;
-      vm.login = function() {
-        var ref = new Firebase("https://sondansswishlist.firebaseio.com/")
+        ref = new Firebase("https://sondansswishlist.firebaseio.com/")
 
-        ref.authWithPassword({
-          email:vm.email,
-          password:vm.password
-        }, function(error, authData) {
-          if (error === null) {
-            console.log(vm.email + " has logged in successfully", authData);
-          } else {
-            console.log("Error creating user", error);
-          }
-        });
-      }
+    vm.login = function() {
+      ref.authWithPassword({
+        email:vm.email,
+        password:vm.password
+      }, function(error, authData) {
+        if (error === null) {
+          console.log(vm.email + " has logged in successfully", authData);
+          $location.path("/");
+          $scope.$apply();
+        } else {
+          console.log("Error logging in user", error);
+        }
+      });
+    }
+
+    vm.register = function() {
+      ref.createUser({
+        email:vm.email,
+        password:vm.password
+      }, function(error, authData) {
+        if (error === null) {
+          console.log(vm.email + " has been created successfully", authData);
+          vm.login();
+        } else {
+          console.log("Error creating user", error);
+        }
+      });
+    }
 
   })
 
