@@ -4,7 +4,7 @@
   .factory("WishFactory", function($http, $location) {
 
     function getWish(id, cb) {
-      var url = "https://nsswishlist.firebaseio.com/Wishes/" + id + ".json"
+      var url = "https://sondansswishlist.firebaseio.com/" + id + ".json"
       $http.get(url)
       .success(function(data) {
         cb(data);
@@ -14,7 +14,7 @@
       });
     }
     function editWish(id, wish) {
-      var url = "https://nsswishlist.firebaseio.com/Wishes/" + id + ".json"
+      var url = "https://sondansswishlist.firebaseio.com/" + id + ".json"
       $http.put(url, wish)
       .success(function(data) {
         $location.path("/");
@@ -24,7 +24,7 @@
       });
     }
     function getAllWishes(cb) {
-      $http.get("https://nsswishlist.firebaseio.com/Wishes.json")
+      $http.get("https://sondansswishlist.firebaseio.com/.json")
       .success(function(data) {
         cb(data);
       })
@@ -33,7 +33,7 @@
       });
     }
     function addNewWish(wish, cb) {
-      $http.post("https://nsswishlist.firebaseio.com/Wishes.json", wish)
+      $http.post("https://sondansswishlist.firebaseio.com/.json", wish)
       .success(function(data) {
         $location.path("/");
         cb(data);
@@ -43,7 +43,7 @@
       });
     }
     function removeWish(wishId, cb) {
-      var url = "https://nsswishlist.firebaseio.com/Wishes/" + wishId + ".json";
+      var url = "https://sondansswishlist.firebaseio.com/" + wishId + ".json";
       $http.delete(url)
       .success(function(data) {
         cb()

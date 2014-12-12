@@ -1,7 +1,24 @@
 (function() {
   "use strict";
   angular.module("myApp")
-  .controller('LoginController', function(){})
+  .controller("LoginController", function() {
+    var vm = this;
+      vm.login = function() {
+        var ref = new Firebase("https://sondansswishlist.firebaseio.com/")
+
+        ref.authWithPassword({
+          email:vm.email,
+          password:vm.password
+        }, function(error, authData) {
+          if (error === null) {
+            console.log(vm.email + " has logged in successfully", authData);
+          } else {
+            console.log("Error creating user", error);
+          }
+        });
+      }
+
+  })
 
   .controller("ShowController", function($routeParams, WishFactory) {
     var vm = this,
