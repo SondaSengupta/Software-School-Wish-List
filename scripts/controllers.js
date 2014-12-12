@@ -1,6 +1,7 @@
 (function() {
   "use strict";
   angular.module("myApp")
+  .controller('LoginController', function(){})
 
   .controller("ShowController", function($routeParams, WishFactory) {
     var vm = this,

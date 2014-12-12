@@ -8,10 +8,13 @@ h1, h2, h3 {
   margin: 10px;
 }
 
-#allWish, #newWish, #landingWish {
+#allWish, #newWish, #landingWish, #loginWish {
   margin-bottom: 10px;
-  padding: 20px;
-  float: left;
+  padding: 15px;
+}
+
+.newWishForm, .form-group{
+  margin: 20px;
 }
 
 .add-img{
