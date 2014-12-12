@@ -4,21 +4,24 @@
   .config(function($routeProvider) {
     $routeProvider
     .when("/", {
+      templateUrl: "views/landing.html"
+    })
+    .when("/wishes", {
       templateUrl: "views/table.html",
       controller: "AmazonController",
       controllerAs: "aC"
     })
-    .when("/new", {
+    .when("/wishes/new", {
       templateUrl: "views/form.html",
       controller: "AmazonController",
       controllerAs: "aC"
     })
-    .when("/:id", {
+    .when("/wishes/:id", {
       templateUrl: "views/show.html",
       controller: "ShowController",
       controllerAs: "show"
     })
-    .when("/:id/edit", {
+    .when("/wishes/:id/edit", {
       templateUrl: "views/form.html",
       controller: "EditWishController",
       controllerAs: "aC"

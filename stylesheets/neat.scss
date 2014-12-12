@@ -8,9 +8,10 @@ h1, h2, h3 {
   margin: 10px;
 }
 
-#allWish {
-  margin-left: 34%;
+#allWish, #newWish, #landingWish {
   margin-bottom: 10px;
+  padding: 20px;
+  float: left;
 }
 
 .add-img{
@@ -19,11 +20,6 @@ h1, h2, h3 {
   border-radius: 10%;
 }
 
-#newWish {
-  float: right;
-  margin-right: 34%;
-  margin-bottom: 10px;
-}
 
 #show-pic{
   display: block;
