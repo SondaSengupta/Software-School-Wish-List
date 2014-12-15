@@ -17,7 +17,7 @@
       var url = "https://sondansswishlist.firebaseio.com/" + id + ".json"
       $http.put(url, wish)
       .success(function(data) {
-        $location.path("/");
+        // $location.path("/");
       })
       .error(function(err) {
         console.log(err);
