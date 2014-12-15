@@ -1,49 +1,24 @@
 (function() {
   "use strict";
   angular.module("myApp")
-  .controller("LoginController", function($scope, $location) {
+  .controller("LoginController", function($scope, $location, authFactory) {
     var vm = this;
-    var ref = new Firebase("https://sondansswishlist.firebaseio.com/")
-
-    vm.login = function() {
-      ref.authWithPassword({
-        email:vm.email,
-        password:vm.password
-      }, function(error, authData) {
-        if (error === null) {
-          console.log(vm.email + " has logged in successfully", authData);
+     vm.login = function() {
+        authFactory.login(vm.email, vm.password, function() {
           $location.path("/");
           $scope.$apply();
-        } else {
-          console.log("Error logging in user", error);
-        }
-      });
-    }
+
+        });
+      };
 
     vm.register = function() {
-      ref.createUser({
-        email:vm.email,
-        password:vm.password
-      }, function(error, authData) {
-        if (error === null) {
-          console.log(vm.email + " has been created successfully", authData);
+      authFactory.register(vm.email, vm.password, function() {
           vm.login();
-        } else {
-          console.log("Error creating user", error);
-        }
-      });
+        });
     }
 
     vm.forgotPassword = function() {
-      ref.resetPassword({
-          email:vm.email
-        }, function(error) {
-        if (error === null) {
-          alert("Password reset successful. Please check email for temporary password");
-        } else {
-          console.log("Error sending password reset email. Try again.", error);
-        }
-      });
+      authFactory.resetPassword(vm.email)
     };
 
   })
@@ -54,6 +29,8 @@
       ref.unauth(function() {
         $location.path("/");
         $scope.$apply();
+        var whoIsUser = ref.getAuth();
+        console.log( "The user logged in right now is " + whoIsUser );
       });
     })
 
